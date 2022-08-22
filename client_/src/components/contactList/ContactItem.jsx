@@ -20,7 +20,7 @@ const { item } = props;
     return (
         <div className="contact" key={item.id} onClick={edit}>
             <div className="contact-avatar">
-                <img src={contactService.pictureUrl(item.imageUrl)} />
+                <img alt='profile' src={contactService.pictureUrl(item.imageUrl)} />
             </div>
             <div className="contact-details">
                 <div className="contact-name">{item.name}</div>

@@ -39,7 +39,7 @@ export const contactAction_post = (contact) => {
 }
 export const contactAction_edit=(contact,cb)=>{
     return async (dispatch,getState) => {
-        let result = await contactService.put(contact);
+         await contactService.put(contact);
         let list=getState().contactsList;
         let i=list.findIndex(x=>x.id==contact.id)
         list[i]=contact;
@@ -50,7 +50,7 @@ export const contactAction_edit=(contact,cb)=>{
 
 export const contactAction_delete=(contact)=>{
     return async (dispatch,getState) => {
-        let result = await contactService.deleted(contact.id);
+         await contactService.deleted(contact.id);
         let list=getState().contactsList;
         list=list.filter(x=>x.id!=contact.id)
         dispatch({ type: type.fill, payload: list })

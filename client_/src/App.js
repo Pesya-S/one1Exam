@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import EditContact from './components/EditContact';
 import Contact from './components/contactList/Contact';
 

@@ -24,9 +24,10 @@ const EditContact = (props) => {
         else if (id && !location.state) {
             getContact()
         }
+        // eslint-disable-next-line
     }, [])
 
-    const getContact = async() => {
+    const getContact = async () => {
         dispatch(contactAction_get());
         let _item = await contactService.getById(id);
         if (_item)
@@ -70,7 +71,7 @@ const EditContact = (props) => {
         <div className="contact-container">
             <div className="new-contact-container">
                 <div className='new-contact-avatar'>
-                   {item.imageUrl&&item.imageUrl!=''&& <img src={contactService.pictureUrl(item.imageUrl)} />}
+                    {item.imageUrl && item.imageUrl != '' && <img alt='profile' src={contactService.pictureUrl(item.imageUrl)} />}
                     <button disabled={noContact} onClick={getImage}><i className="fa fa-refresh" aria-hidden="true"></i></button>
                 </div>
                 <div className="new-contact-inputs">
@@ -88,13 +89,13 @@ const EditContact = (props) => {
                     </div>
                 </div>
                 <div className="new-contact-buttons">
-                    <button disabled={noContact|| item.name == '' || item.phone == ''} className="button-ok" onClick={save}>Save</button>
+                    <button disabled={noContact || item.name == '' || item.phone == ''} className="button-ok" onClick={save}>Save</button>
                     <Link to='/contacts'>
                         <button className="button-cancel">Cancel</button>
                     </Link>
                 </div>
                 <div>
-                   { noContact&&<h2 style={{color:'red'}}>The selected contact does not exist</h2>}
+                    {noContact && <h2 style={{ color: 'red' }}>The selected contact does not exist</h2>}
                 </div>
             </div>
         </div>

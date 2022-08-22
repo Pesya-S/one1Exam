@@ -33,7 +33,7 @@ router.post('/post', async (req, res) => {
 //  http://localhost:8080/contact/put
 router.put('/put', async (req, res) => {
     let contact = req.body;
-    await db.update(tableName, contact);
+    let [result,err]=await db.update(tableName, contact);
     if (err)
     res.status(500).send({ ok: false, message: err.message })
     res.status(200).send({result:'ok'});
@@ -42,7 +42,7 @@ router.put('/put', async (req, res) => {
 //  http://localhost:8080/contact/delete?id=1
 router.delete('/delete', async (req, res) => {
     let { id } = req.query;
-    await db.deleted(tableName, id);
+    let [result,err]=await db.deleted(tableName, id);
     if (err)
     res.status(500).send({ ok: false, message: err.message })
     res.status(200).send({result:'ok'});
