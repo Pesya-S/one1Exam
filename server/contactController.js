@@ -1,6 +1,4 @@
 const db = require('./db');
-
-
 const router = require("express").Router();
 const tableName = 'contactTbl';
 
@@ -17,8 +15,8 @@ router.get('/getById', async (req, res) => {
     let { id } = req.query;
     let [contact, err] = await db.getById(tableName, id);
     if (err)
-    res.status(500).send({ ok: false, message: err.message })
-    res.status(200).send({result:contact});
+        res.status(500).send({ ok: false, message: err.message })
+    res.status(200).send({ result: contact });
 })
 
 //  http://localhost:8080/contact/post
@@ -26,26 +24,26 @@ router.post('/post', async (req, res) => {
     let contact = req.body;
     let [insertId, err] = await db.insert(tableName, contact);
     if (err)
-    res.status(500).send({ ok: false, message: err.message })
-    res.status(200).send({result: {insertId: insertId} });
+        res.status(500).send({ ok: false, message: err.message })
+    res.status(200).send({ result: { insertId: insertId } });
 })
 
 //  http://localhost:8080/contact/put
 router.put('/put', async (req, res) => {
     let contact = req.body;
-    let [result,err]=await db.update(tableName, contact);
+    let [result, err] = await db.update(tableName, contact);
     if (err)
-    res.status(500).send({ ok: false, message: err.message })
-    res.status(200).send({result:'ok'});
+        res.status(500).send({ ok: false, message: err.message })
+    res.status(200).send({ result: 'ok' });
 })
 
 //  http://localhost:8080/contact/delete?id=1
 router.delete('/delete', async (req, res) => {
     let { id } = req.query;
-    let [result,err]=await db.deleted(tableName, id);
+    let [result, err] = await db.deleted(tableName, id);
     if (err)
-    res.status(500).send({ ok: false, message: err.message })
-    res.status(200).send({result:'ok'});
+        res.status(500).send({ ok: false, message: err.message })
+    res.status(200).send({ result: 'ok' });
 })
 
 

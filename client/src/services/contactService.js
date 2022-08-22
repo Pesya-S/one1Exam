@@ -37,7 +37,6 @@ class contactService {
   }
 
   randomContact=async()=>{
-    // https://cors-anywhere.herokuapp.com/
     let result=await axios.get('https://randomuser.me/api');
     result=result.data.results[0];
     let newContact={name:`${result.name.first} ${result.name.last}`,title:result.name.title,phone:result.phone};

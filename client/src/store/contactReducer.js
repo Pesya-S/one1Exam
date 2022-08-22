@@ -44,7 +44,7 @@ export const contactAction_edit=(contact,cb)=>{
         let i=list.findIndex(x=>x.id==contact.id)
         list[i]=contact;
         dispatch({ type: type.fill, payload: list });
-        cb();
+        if(cb) cb();
     }
 }
 
@@ -56,8 +56,6 @@ export const contactAction_delete=(contact)=>{
         dispatch({ type: type.fill, payload: list })
     }
 }
-export const contactAction_getById=(id,list)=>{
-    // let result=await contactService.getById(id);
-}
+
 
 

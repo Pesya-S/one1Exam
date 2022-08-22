@@ -5,9 +5,11 @@ import contactService from '../../services/contactService';
 import { contactAction_delete } from '../../store/contactReducer';
 
 const ContactItem = (props) => {
+    
 const { item } = props;
 	const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const deleteItem=(e)=>{
         e.cancelBubble = true; if (e.stopPropagation) e.stopPropagation(); 
         dispatch(contactAction_delete(item));

@@ -21,9 +21,8 @@ const EditContact = (props) => {
     useEffect(() => {
         if (mode == 'new')
             getImage();
-        else if (id && !location.state) {
+        else if (id && !location.state) 
             getContact()
-        }
         // eslint-disable-next-line
     }, [])
 
@@ -39,7 +38,6 @@ const EditContact = (props) => {
 
 
     const save = async () => {
-        console.log('save');
         if (mode == 'edit')
             dispatch(contactAction_edit(item, () => { navigate('/contacts') }));
         else {
@@ -49,10 +47,7 @@ const EditContact = (props) => {
     }
 
     const updateFormState = (event) => {
-        setItem({
-            ...item,
-            [event.target.name]: event.target.value,
-        });
+        setItem({...item,[event.target.name]: event.target.value,});
     };
 
     const getImage = async () => {

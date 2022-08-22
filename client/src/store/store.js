@@ -12,9 +12,6 @@ const rootReducer = (state, action) => {
   return appReducer(state, action);
 }
 
-
-
-//const store=createStore(appReducer, applyMiddleware(thunk));
-const store = createStore(rootReducer, applyMiddleware(thunk));//2021.12.08
+const store = createStore(rootReducer, applyMiddleware(thunk));
 window.store = store;
 export default store;
